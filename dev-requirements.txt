@@ -26,7 +26,7 @@ click==8.1.8
     # via edgetest
 colorama==0.4.6
     # via commitizen
-commitizen==4.5.0
+commitizen==4.6.0
     # via lazyscribe-onnx (pyproject.toml)
 coverage==7.8.0
     # via pytest-cov
@@ -154,7 +154,7 @@ rfc3986==2.0.0
     # via twine
 rich==14.0.0
     # via twine
-ruff==0.11.4
+ruff==0.11.5
     # via lazyscribe-onnx (pyproject.toml)
 secretstorage==3.3.3
     # via keyring
@@ -182,12 +182,12 @@ twine==6.1.0
     # via lazyscribe-onnx (pyproject.toml)
 types-python-slugify==8.0.2.20240310
     # via lazyscribe-onnx (pyproject.toml)
-typing-extensions==4.13.1
+typing-extensions==4.13.2
     # via
     #   commitizen
     #   mypy
     #   rich
-urllib3==2.3.0
+urllib3==2.4.0
     # via
     #   requests
     #   twine
