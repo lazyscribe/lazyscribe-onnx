@@ -10,7 +10,7 @@ importlib-metadata==8.7.0
     # via lazyscribe
 lazyscribe==1.2.0
     # via lazyscribe-onnx (pyproject.toml)
-ml-dtypes==0.5.3
+ml-dtypes==0.5.4
     # via onnx
 numpy==2.2.6
     # via
@@ -18,7 +18,7 @@ numpy==2.2.6
     #   onnx
 onnx==1.19.1
     # via lazyscribe-onnx (pyproject.toml)
-protobuf==6.33.0
+protobuf==6.33.1
     # via onnx
 python-slugify==8.0.4
     # via
