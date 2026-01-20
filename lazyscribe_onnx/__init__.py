@@ -28,6 +28,7 @@ class ONNXArtifact(Artifact):
         value: Any | None = None,
         fname: str | None = None,
         created_at: datetime | None = None,
+        expiry: datetime | None = None,
         writer_kwargs: dict | None = None,
         version: int = 0,
         dirty: bool = True,
@@ -43,6 +44,7 @@ class ONNXArtifact(Artifact):
             writer_kwargs=writer_kwargs or {},
             version=version,
             created_at=created_at,
+            expiry=expiry,
             dirty=dirty,
         )
 
