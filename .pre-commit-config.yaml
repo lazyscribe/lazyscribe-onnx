@@ -2,7 +2,7 @@ default_stages: [pre-commit]
 default_install_hook_types: [commit-msg, pre-commit]
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.11.3
+    rev: v0.14.13
     hooks:
       # Run the linter.
       - id: ruff

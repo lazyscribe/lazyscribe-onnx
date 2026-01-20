@@ -12,7 +12,7 @@ from slugify import slugify
 __all__: list[str] = ["ONNXArtifact"]
 
 
-@define(auto_attribs=True)
+@define(auto_attribs=True)  # noqa: RUF067
 class ONNXArtifact(Artifact):
     """Handler for ONNX model objects."""
 
