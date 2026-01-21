@@ -126,7 +126,7 @@ prompt-toolkit==3.0.51
     #   questionary
 protobuf==6.33.4
     # via onnx
-pycparser==2.23
+pycparser==3.0
     # via cffi
 pygments==2.19.2
     # via
