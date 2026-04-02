@@ -16,7 +16,7 @@ numpy==2.2.6
     #   onnx
 onnx==1.20.1
     # via lazyscribe-onnx (pyproject.toml)
-protobuf==6.33.5
+protobuf==7.34.1
     # via onnx
 python-slugify==8.0.4
     # via
