@@ -30,16 +30,16 @@ classifiers = [
     "Topic :: Software Development :: Documentation",
 ]
 dependencies = [
-    "attrs<=25.4.0,>=21.2.0",
-    "lazyscribe>=2.0.0,<3",
-    "onnx<=1.20.0,>=1.12.0",
+    "attrs<=26.1.0,>=21.2.0",
+    "lazyscribe!=3,<=2.2.1,>=2.0.0",
+    "onnx<=1.21.0,>=1.12.0",
     "python-slugify<=8.0.4,>=5.0.0",
 ]
 optional-dependencies.build = [ "commitizen", "uv" ]
 optional-dependencies.dev = [
     "lazyscribe-onnx[build]",
     "lazyscribe-onnx[qa]",
-    "lazyscribe-onnx[tests]",
+    "lazyscribe-onnx[tests]"
 ]
 optional-dependencies.qa = [
     "edgetest>=2026.5.0",
@@ -49,11 +49,7 @@ optional-dependencies.qa = [
     "pyproject-fmt",
     "types-python-slugify",
 ]
-optional-dependencies.tests = [
-    "pytest",
-    "pytest-cov",
-    "time-machine",
-]
+optional-dependencies.tests = [ "pytest", "pytest-cov", "time-machine" ]
 urls.Documentation = "https://github.com/lazyscribe/lazyscribe-onnx"
 urls.Repository = "https://github.com/lazyscribe/lazyscribe-onnx"
 entry-points."lazyscribe.artifact_type".onnx = "lazyscribe_onnx:ONNXArtifact"
