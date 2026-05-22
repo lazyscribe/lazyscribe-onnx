@@ -47,6 +47,7 @@ optional-dependencies.qa = [
     "pre-commit",
     "pre-commit-uv",
     "pyproject-fmt",
+    "ruff",
     "types-python-slugify",
 ]
 optional-dependencies.tests = [ "pytest", "pytest-cov", "time-machine" ]
