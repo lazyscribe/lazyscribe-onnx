@@ -1,21 +1,33 @@
+[build-system]
+build-backend = "uv_build"
+requires = [ "uv-build>=0.8.0,<=0.9.5" ]
+
 [project]
 name = "lazyscribe-onnx"
-requires-python = ">=3.10.0"
+version = "0.1.1"
 description = "ONNX model artifact handling for lazyscribe"
-authors = [
-    {name = "Akshay Gupta", email="akgcodes@gmail.com"}
-]
-license = {text = "MIT license"}
+readme = { file = "README.md", content-type = "text/markdown" }
+license = { text = "MIT license" }
+authors = [ { name = "Akshay Gupta", email = "akgcodes@gmail.com" } ]
+requires-python = ">=3.10.0"
 classifiers = [
-	"Development Status :: 3 - Alpha",
-	"License :: OSI Approved :: MIT License",
-	"Natural Language :: English",
-	"Programming Language :: Python :: 3",
-	"Programming Language :: Python :: 3 :: Only",
-	"Programming Language :: Python :: 3.10",
-	"Programming Language :: Python :: 3.11",
-	"Programming Language :: Python :: 3.12",
-	"Programming Language :: Python :: 3.13",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Free Threading :: 2 - Beta",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Documentation",
 ]
 dependencies = [
     "attrs<=25.4.0,>=21.2.0",
@@ -23,101 +35,66 @@ dependencies = [
     "onnx<=1.20.0,>=1.12.0",
     "python-slugify<=8.0.4,>=5.0.0",
 ]
-
-dynamic = ["readme", "version"]
-
-[project.optional-dependencies]
-build = ["build", "commitizen", "twine", "wheel"]
-qa = ["edgetest", "mypy", "pre-commit", "ruff", "types-python-slugify", "uv"]
-tests = ["pytest", "pytest-cov", "time-machine"]
-dev = ["lazyscribe-onnx[build]", "lazyscribe-onnx[qa]", "lazyscribe-onnx[tests]"]
-
-[project.urls]
-"Documentation" = "https://github.com/lazyscribe/lazyscribe-onnx"
-"Repository" = "https://github.com/lazyscribe/lazyscribe-onnx"
-
-# Build system
-[build-system]
-requires = ["setuptools>=64.0.0"]
-build-backend = "setuptools.build_meta"
-
-[project.entry-points."lazyscribe.artifact_type"]
-onnx = "lazyscribe_onnx:ONNXArtifact"
-
-##############################################################################
-# Setuptools configuration
-##############################################################################
-
-[tool.setuptools]
-include-package-data = true
-zip-safe = false
-packages = ["lazyscribe_onnx"]
-
-[tool.setuptools.dynamic]
-version = {attr = "lazyscribe_onnx._meta.__version__"}
-readme = {file = ["README.md"], content-type = "text/markdown"}
-
-##############################################################################
-# Tooling
-##############################################################################
-
-# COMMITIZEN -----------------------------------------------------------------
-
-[tool.commitizen]
-version = "0.1.1"
-tag_format = "v$version"
-update_changelog_on_bump = true
-version_files = [
-    "lazyscribe_onnx/_meta.py:__version__",
+optional-dependencies.build = [ "commitizen", "uv" ]
+optional-dependencies.dev = [
+    "lazyscribe-onnx[build]",
+    "lazyscribe-onnx[qa]",
+    "lazyscribe-onnx[tests]",
 ]
+optional-dependencies.qa = [
+    "edgetest>=2026.5.0",
+    "mypy",
+    "pre-commit",
+    "pre-commit-uv",
+    "pyproject-fmt",
+    "types-python-slugify",
+]
+optional-dependencies.tests = [
+    "pytest",
+    "pytest-cov",
+    "time-machine",
+]
+urls.Documentation = "https://github.com/lazyscribe/lazyscribe-onnx"
+urls.Repository = "https://github.com/lazyscribe/lazyscribe-onnx"
+entry-points."lazyscribe.artifact_type".onnx = "lazyscribe_onnx:ONNXArtifact"
 
-# EDGETEST -------------------------------------------------------------------
-
-[edgetest.envs.core]
-python_version = "3.10"
-extras = ["tests"]
-upgrade = ["attrs", "lazyscribe", "onnx", "python-slugify"]
-command = "pytest tests"
-
-# RUFF -----------------------------------------------------------------------
+[tool.uv]
+build-backend.module-name = "lazyscribe_onnx"
+build-backend.module-root = ""
 
 [tool.ruff]
 target-version = "py310"
-
-[tool.ruff.lint]
-preview = true
-select = [
-	"E",  # pycodestyle errors
-	"W",  # pycodestyle warnings
-	"F",  # pyflakes
-	"D",  # pydocstyle
-	"I",  # isort
-	"UP",  # pyupgrade
-	"B",  # flake8-bugbear
-	"C",  # flake8-comprehensions
-	"T20",  # flake8-print
-	"TID252",  # flake8-tidy-imports ban relative imports
-	"SIM",  # flake8-simplify
-	"LOG",  # flake8-logging
-	"RUF",  # Ruff errors
+lint.select = [
+    "B",      # flake8-bugbear
+    "C",      # flake8-comprehensions
+    "D",      # pydocstyle
+    "E",      # pycodestyle errors
+    "F",      # pyflakes
+    "I",      # isort
+    "LOG",    # flake8-logging
+    "RUF",    # Ruff errors
+    "SIM",    # flake8-simplify
+    "T20",    # flake8-print
+    "TID252", # flake8-tidy-imports ban relative imports
+    "UP",     # pyupgrade
+    "W",      # pycodestyle warnings
 ]
-ignore = [
-	"C901",  # Function/method is too complex. (Add back in later.)
-	"E501",  # Line too long. Using formatter instead.
+lint.ignore = [
+    "C901", # Function/method is too complex. (Add back in later.)
+    "E501", # Line too long. Using formatter instead.
 ]
+lint.per-file-ignores."**/{tests,docs}/*" = [ "ARG", "D", "E402", "F841" ]
+lint.per-file-ignores."__init__.py" = [ "E402" ]
+lint.per-file-ignores."tutorials/*" = [ "D", "T201" ]
+lint.flake8-tidy-imports.ban-relative-imports = "all"
+lint.pydocstyle.convention = "numpy"
+lint.preview = true
 
-[tool.ruff.lint.per-file-ignores]
-"__init__.py" = ["E402"]
-"**/{tests,docs}/*" = ["E402", "D", "F841", "ARG"]
-"tutorials/*" = ["D", "T201"]
-
-[tool.ruff.lint.flake8-tidy-imports]
-ban-relative-imports = "all"
-
-[tool.ruff.lint.pydocstyle]
-convention = "numpy"
-
-# MYPY -----------------------------------------------------------------------
+[tool.pyproject-fmt]
+column_width = 88
+indent = 4
+keep_full_version = true
+max_supported_python = "3.14"
 
 [tool.mypy]
 python_version = "3.10"
@@ -126,3 +103,20 @@ warn_unused_configs = true
 ignore_missing_imports = true
 allow_redefinition = true
 check_untyped_defs = true
+
+[tool.commitizen]
+version_provider = "uv"
+tag_format = "v$version"
+update_changelog_on_bump = true
+version_files = [
+    "lazyscribe_onnx/_meta.py:__version__",
+]
+
+[tool.edgetest]
+exclude_newer = "3 days"
+
+[[tool.edgetest.env]]
+name = "core"
+extras = [ "tests" ]
+upgrade = [ "attrs", "lazyscribe", "onnx", "python-slugify" ]
+command = "pytest tests"
