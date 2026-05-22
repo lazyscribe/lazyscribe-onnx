@@ -6,7 +6,7 @@ attrs==26.1.0
     #   lazyscribe
 fsspec==2026.3.0
     # via lazyscribe
-lazyscribe==2.1.0
+lazyscribe==2.2.1
     # via lazyscribe-onnx (pyproject.toml)
 ml-dtypes==0.5.4
     # via onnx
@@ -16,7 +16,7 @@ numpy==2.2.6
     #   onnx
 onnx==1.21.0
     # via lazyscribe-onnx (pyproject.toml)
-protobuf==7.34.1
+protobuf==7.35.0
     # via onnx
 python-slugify==8.0.4
     # via
