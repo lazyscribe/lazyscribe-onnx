@@ -4,7 +4,7 @@ requires = [ "uv-build>=0.8.0,<=0.9.5" ]
 
 [project]
 name = "lazyscribe-onnx"
-version = "0.1.1"
+version = "0.1.2"
 description = "ONNX model artifact handling for lazyscribe"
 readme = { file = "README.md", content-type = "text/markdown" }
 license = { text = "MIT license" }
